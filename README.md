@@ -35,3 +35,10 @@ Som rammeverk ønsker vi å bruke Angular. Angular er noe vi har litt erfaring m
 
 Lignende tjenester finnes allerede, men vi ønsker å lære mer om bruk av API-er, og bruk av Angular.
 
+
+
+
+
+
+
+Vi ser i ettertid at det var litt problemer med rammeverket Angular på Mac. Det var noen problemer med å installere det, så derfor valgte vi å bruke Vue istedenfor. Vue burde i tilegg passe bedre til vårt prosjekt, i og med at systemet ikke skal være for innviklet, bare noen enkle uthentinger ved hjelp av API.
