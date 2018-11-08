@@ -22,8 +22,11 @@
       </script>
 
         <div id="app1">
-          By    {{ city }} <br>
+
+
+          dt {{ dt }} <br>
           Oversikt    {{ overcast }} <br>
+          by {{ city }} <br>
           Temperatur    {{ currentTemp }} degrees celcius <br>
           Vindstyrke    {{ wind }} m/s <br>
           Tidspunkt  {{ time }} <br> <br> <br>
@@ -32,6 +35,8 @@
         <script>
         document.getElementById("app1").style.display = 'none';
         </script>
+
+
 
 
         <script src="weather.js"></script>
