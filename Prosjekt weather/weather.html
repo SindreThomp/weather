@@ -6,13 +6,12 @@
     </head>
     <body>
 
-<h1> Weatherstation </h1>
+      <h2> Weatherstation </h2>
 
-
-      <button onclick="getStavanger()">Stavanger</button>
+      <button class= "button" onclick="getKristiansand()">Kristiansand</button>
       <script>
-          function getStavanger() {
-            var x = document.getElementById("app1");
+          function getKristiansand() {
+            var x = document.getElementById("app");
             if (x.style.display === "none") {
                 x.style.display = "block";
          } else {
@@ -21,19 +20,40 @@
                 }
       </script>
 
-        <div id="app1">
-          By    {{ city }} <br>
-          Oversikt    {{ overcast }} <br>
-          Temperatur    {{ currentTemp }} degrees celcius <br>
-          Vindstyrke    {{ wind }} m/s <br>
-          Tidspunkt  {{ time }} <br> <br> <br>
-        </div>
+              <div id="app">
+                <b>Sky: </b>    {{ overcast }} <br>
+                <b>Temperature: </b>    {{ currentTemp }} degrees celcius <br>
+                <b>Wind strength: </b>    {{ wind }} m/s <br> <br>
+            </div>
+      <br>
+            <script>
+            document.getElementById("app").style.display = 'none';
+            </script>
 
-        <script>
-        document.getElementById("app1").style.display = 'none';
-        </script>
+            <button class= "button" onclick="getStavanger()">Stavanger</button>
+            <script>
+                function getStavanger() {
+                  var x = document.getElementById("app1");
+                  if (x.style.display === "none") {
+                      x.style.display = "block";
+               } else {
+                      x.style.display = "none";
+                          }
+                      }
+            </script>
 
+              <div id="app1">
+                <b>City: </b> {{ city }} <br>
+                <b>Sky: </b> {{ overcast }} <br>
+                <b>Temperature: </b> {{ currentTemp }} degrees celcius <br>
+                <b>Wind strength: </b> {{ wind }} m/s <br>
+                <b>Time: </b> {{ time }} <br> <br>
+              </div>
 
-        <script src="weather.js"></script>
+              <script>
+              document.getElementById("app1").style.display = 'none';
+              </script>
+
+<script src="weather.js"></script>
     </body>
 </html>

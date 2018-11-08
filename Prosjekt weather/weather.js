@@ -1,13 +1,50 @@
-//Melding
+
+let weather = new Vue({
+  el: '#app',
+  data: {
+    overcast: '',
+    currentTemp: '',
+    wind: ''
+  },
+
+  methods: {
+    // getWeather() {
+    //   let url = "http://dataservice.accuweather.com/currentconditions/v1/261324?apikey=UG1ELWb3snblHaeJStDwgRtuA7kiRrpv";
+    //   axios
+    //   .get(url)
+    //   .then(response => {
+    //     this.overcast = response.data.WeatherText;
+    //     this.currentTemp  = response.data.Temperature.Value;
+    //     this.wind = response.data.Wind.Speed.Metric.Value;
+    fetch('http:dataservice.accuweather.com/currentconditions/v1/261324?apikey=UG1ELWb3snblHaeJStDwgRtuA7kiRrpv').then(response => {
+      return response.json();
+    }).then(data => {
+      //json data here
+      console.log(data);
+      }).catch(error => {
+        console.log(error);
+      });
+    },
+  },
+  beforeMount(){
+    this.getWeather();
+  },
+})
+
+
+
+
 let weather1 = new Vue({
   el: '#app1',
   data: {
-    city: '',
     overcast: '',
     currentTemp: '',
     wind: '',
     time: ''
   },
+
+
+
 
   methods: {
     getWeather1(){
@@ -15,10 +52,10 @@ let weather1 = new Vue({
       axios
       .get(url)
       .then(response => {
-        this.city = response.data.name;
         this.overcast = response.data.weather[0].description;
         this.currentTemp  = response.data.main.temp;
         this.wind = response.data.wind.speed;
+        this.time = response.data.dt;
 
       })
       .catch(error => {
