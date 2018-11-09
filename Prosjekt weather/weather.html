@@ -8,11 +8,11 @@
 
 <h1> Weatherstation </h1>
 
-
-      <button onclick="getStavanger()">Stavanger</button>
+      <button onclick="getBy()">Stavanger  </button>
       <script>
-          function getStavanger() {
+          function getBy() {
             var x = document.getElementById("app1");
+
             if (x.style.display === "none") {
                 x.style.display = "block";
          } else {
@@ -21,22 +21,18 @@
                 }
       </script>
 
+
         <div id="app1">
-
-
-          dt {{ dt }} <br>
-          Oversikt    {{ overcast }} <br>
-          by {{ city }} <br>
-          Temperatur    {{ currentTemp }} degrees celcius <br>
-          Vindstyrke    {{ wind }} m/s <br>
-          Tidspunkt  {{ time }} <br> <br> <br>
+          dt {{ dt }} <br> <br>
+          by {{ city }} <br> <br>
+          Temperatur    {{ currentTemp }} degrees celcius <br> <br>
+          Vindstyrke    {{ wind }} m/s <br> <br>
+          
         </div>
 
         <script>
         document.getElementById("app1").style.display = 'none';
         </script>
-
-
 
 
         <script src="weather.js"></script>

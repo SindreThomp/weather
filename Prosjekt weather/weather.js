@@ -5,8 +5,7 @@ let weather1 = new Vue({
     dt: '',
     city: '',
     currentTemp: '',
-    wind: '',
-    time: ''
+    overcast: ''
   },
 
   methods: {
@@ -19,21 +18,19 @@ let weather1 = new Vue({
         this.city = response.data.city.name;
 
         this.dt = response.data.list.map(list =>{
-          return list.dt_txt;
+            return list.dt_txt;
+            
         });
-
 
         this.currentTemp = response.data.list.map(list => {
             {
           return list.main.temp;
         }
-
         });
 
-
-
-
-
+        this.wind = response.data.list.map(list => {
+          return list.wind.speed;
+        });
 
       })
       .catch(error => {
