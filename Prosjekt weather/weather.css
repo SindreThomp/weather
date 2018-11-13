@@ -1,4 +1,146 @@
-html, body {
-  margin: 5px;
-  padding: 0;
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    left: 0;
+    background-color: White;
+}
+
+.right {
+    right: 0;
+    background-color: White ;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.centerDown {
+    position:absolute;
+    top:50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+
+.container .btnOslo {
+    position: absolute;
+    top: 82%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.container .btnKristiansand {
+    position: absolute;
+    top: 92%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.container .btnStavanger {
+    position: absolute;
+    top: 87%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.container .btnBergen {
+    position: absolute;
+    top: 72%;
+    left: 7%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.container .btnTrondheim {
+    position: absolute;
+    top: 60%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.container .btnOslo:hover {
+  background-color: fireBrick;
+}
+
+.container .btnKristiansand:hover {
+  background-color: fireBrick;
+}
+
+.container .btnStavanger:hover {
+  background-color: fireBrick;
+}
+
+.container .btnBergen:hover {
+  background-color: fireBrick;
+}
+
+.container .btnTrondheim:hover {
+  background-color: fireBrick;
 }

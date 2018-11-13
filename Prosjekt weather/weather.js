@@ -1,32 +1,47 @@
 //Melding
-let weather1 = new Vue({
-  el: '#app1',
+let weatherApp = new Vue({
+  el: "#app",
   data: {
-    city: '',
-    overcast: '',
     currentTemp: '',
-    wind: '',
-    time: ''
+    test: '',
+    city: ''
   },
 
   methods: {
-    getWeather1(){
-      let url = "http://api.openweathermap.org/data/2.5/weather?q=Stavanger&units=metric&APPID=7f38768c3f7c7ba4e80818a481995113";
+    methodTest() {
+      this.test = "test3";
+    },
+    customWeather(city) {
+      this.test = "test2";
+      this.city = city;
+      let url = "http://api.openweathermap.org/data/2.5/weather?q= " + city + "&APPID=2509c1ec40c32caf78e39a525a287619";
       axios
-      .get(url)
-      .then(response => {
-        this.city = response.data.name;
-        this.overcast = response.data.weather[0].description;
-        this.currentTemp  = response.data.main.temp;
-        this.wind = response.data.wind.speed;
+        .get(url)
+        .then(response => {
+          this.currentTemp = Math.round(response.data.main.temp - 273.15);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
 
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    getWeather() {
+      this.test = "test";
+      let city = "Oslo";
+      this.city = city;
+      let url = "http://api.openweathermap.org/data/2.5/weather?q= " + city + "&APPID=2509c1ec40c32caf78e39a525a287619";
+      axios
+        .get(url)
+        .then(response => {
+          this.currentTemp = Math.round(response.data.main.temp - 273.15);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     },
   },
-  beforeMount(){
-    this.getWeather1();
+  beforeMount() {
+    //this.customWeather("Oslo");
   },
+
 })
