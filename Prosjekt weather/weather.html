@@ -1,8 +1,9 @@
 <html>
     <head>
-        <link rel="stylesheet" href="weather.css">
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="weather.css">
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </head>
     <body>
 
@@ -21,9 +22,10 @@
       </script>
 
               <div id="app">
-                <b>Sky: </b>    {{ overcast }} <br>
-                <b>Temperature: </b>    {{ currentTemp }} degrees celcius <br>
-                <b>Wind strength: </b>    {{ wind }} m/s <br> <br>
+              <b>Sky: </b>    {{ overcast }} <br>
+              <b>Temperature: </b>    {{ currentTemp }} °C <br>
+              <b>Wind strength: </b>    {{ wind }} m/s <br> <br>
+
             </div>
       <br>
             <script>
@@ -43,9 +45,8 @@
             </script>
 
               <div id="app1">
-                <b>City: </b> {{ city }} <br>
                 <b>Sky: </b> {{ overcast }} <br>
-                <b>Temperature: </b> {{ currentTemp }} degrees celcius <br>
+                <b>Temperature: </b> {{ currentTemp }}°C <br>
                 <b>Wind strength: </b> {{ wind }} m/s <br>
                 <b>Time: </b> {{ time }} <br> <br>
               </div>

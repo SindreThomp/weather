@@ -8,19 +8,14 @@ let weather = new Vue({
   },
 
   methods: {
-    // getWeather() {
-    //   let url = "http://dataservice.accuweather.com/currentconditions/v1/261324?apikey=UG1ELWb3snblHaeJStDwgRtuA7kiRrpv";
-    //   axios
-    //   .get(url)
-    //   .then(response => {
-    //     this.overcast = response.data.WeatherText;
-    //     this.currentTemp  = response.data.Temperature.Value;
-    //     this.wind = response.data.Wind.Speed.Metric.Value;
-    fetch('http:dataservice.accuweather.com/currentconditions/v1/261324?apikey=UG1ELWb3snblHaeJStDwgRtuA7kiRrpv').then(response => {
-      return response.json();
-    }).then(data => {
-      //json data here
-      console.log(data);
+    getWeather() {
+      //let url = "738327588f1c1d049f87971146cd574d"
+       let url = "http://dataservice.accuweather.com/currentconditions/v1/261324?day=1&apikey=UG1ELWb3snblHaeJStDwgRtuA7kiRrpv&details=true";
+       axios
+       .get(url).then(response => {
+         this.overcast = response.data.$.WeatherText;
+         this.currentTemp = response.data.$.Temperature.Metric.Value;
+         this.wind = response.data.$.WindGust.Metric.Value;
       }).catch(error => {
         console.log(error);
       });
@@ -30,8 +25,6 @@ let weather = new Vue({
     this.getWeather();
   },
 })
-
-
 
 
 let weather1 = new Vue({
