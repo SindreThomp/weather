@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 
 <head>
@@ -44,3 +45,51 @@
 </body>
 
 </html>
+=======
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="weather.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <style>
+    body {
+    font-family: Arial;
+    color: black;
+}
+
+</style>
+</head>
+
+<body>
+  <div class="split left">
+    <div class="centered container">
+      <img src="Norgeskart.jpg">
+      <button class="btn btnOslo" onclick="clickHandler('Oslo')">Oslo</button>
+      <button class="btn btnKristiansand" onclick="clickHandler('Kristiansand')">Kristiansand</button>
+      <button class="btn btnStavanger" onclick="clickHandler('Stavanger')">Stavanger</button>
+      <button class="btn btnBergen" onclick="clickHandler('Bergen')">Bergen</button>
+      <button class="btn btnTrondheim" onclick="clickHandler('Trondheim')">Trondheim</button>
+    </div>
+  </div>
+
+  <div id="app" class="split right">
+    <div class="centerDown">
+      <h1>Været i Norge</h1>
+      <h2> -{{city}}- </h2>
+      {{currentTemp}}°C
+    </div>
+  </div>
+
+  <script>
+    function clickHandler(inputCity) {
+      weatherApp.customWeather(inputCity);
+    }
+  </script>
+  <script src="weather.js"></script>
+
+</body>
+
+</html>
+>>>>>>> 3e2971eb9a910731839a1c63a4b8851a1b41d837

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 
 <head>
@@ -37,3 +38,44 @@
       <input type="submit" value="Submit" onclick="clickHandler()">
       </form>
 -->
+=======
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="weather.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <h1>Været i Norge</h1>
+  <div id="app">
+    <h3><button type="button" onclick="clickHandler('Kristiansand')">Kristiansand</button></h3>
+    <h3><button type="button" onclick="clickHandler('Bergen')">Bergen</button></h3>
+    <h3><button type="button" onclick="clickHandler('Oslo')">Oslo</button></h3>
+    <h3><button type="button" onclick="clickHandler('Stavanger')">Stavanger</button></h3>
+    <h3><button type="button" onclick="clickHandler('Trondheim')">Trondheim</button></h3>
+    <h2> -{{city}}- </h2>
+    {{currentTemp}}°C
+  </div>
+
+  <script>
+    function clickHandler(inputCity) {
+      weatherApp.customWeather(inputCity);
+    }
+  </script>
+  <script src="weather.js"></script>
+<img src="Norgeskart.jpg" alt="Norgeskart">
+</body>
+
+</html>
+
+<!--
+<form>
+      City: <input type="text" name="inputCity" value="Oslo">
+      <br><br>
+      <input type="submit" value="Submit" onclick="clickHandler()">
+      </form>
+-->
+>>>>>>> 3e2971eb9a910731839a1c63a4b8851a1b41d837
