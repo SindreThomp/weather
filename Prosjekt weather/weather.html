@@ -1,60 +1,39 @@
 <html>
-    <head>
-      <meta charset="utf-8">
-      <link rel="stylesheet" href="weather.css">
-      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    </head>
-    <body>
 
-      <h2> Weatherstation </h2>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="weather.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
 
-      <button class= "button" onclick="getKristiansand()">Kristiansand</button>
-      <script>
-          function getKristiansand() {
-            var x = document.getElementById("app");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-         } else {
-                x.style.display = "none";
-                    }
-                }
-      </script>
+<body>
 
-              <div id="app">
-              <b>Sky: </b>    {{ overcast }} <br>
-              <b>Temperature: </b>    {{ currentTemp }} °C <br>
-              <b>Wind strength: </b>    {{ wind }} m/s <br> <br>
 
-            </div>
-      <br>
-            <script>
-            document.getElementById("app").style.display = 'none';
-            </script>
+  <div id="app" class="centerDown">
+    <h2> Weatherstation </h2>
 
-            <button class= "button" onclick="getStavanger()">Stavanger</button>
-            <script>
-                function getStavanger() {
-                  var x = document.getElementById("app1");
-                  if (x.style.display === "none") {
-                      x.style.display = "block";
-               } else {
-                      x.style.display = "none";
-                          }
-                      }
-            </script>
+    <button class="niceButton" onclick="clickHandler('Kristiansand')">Kristiansand</button>
+    <button class="niceButton" onclick="clickHandler('Oslo')">Oslo</button>
+    <button class="niceButton" onclick="clickHandler('Stavanger')">Stavanger</button>
+    <button class="niceButton" onclick="clickHandler('Trondheim')">Trondheim</button>
+    <button class="niceButton" onclick="clickHandler('Bergen')">Bergen</button> <br><br>
 
-              <div id="app1">
-                <b>Sky: </b> {{ overcast }} <br>
-                <b>Temperature: </b> {{ currentTemp }}°C <br>
-                <b>Wind strength: </b> {{ wind }} m/s <br>
-                <b>Time: </b> {{ time }} <br> <br>
-              </div>
+    <b><u> {{ city }} </u></b> <br>
+    <b>Sky: </b> {{ sky }} <br>
+    <b>Temperature: </b> {{ currentTemp }}°C <br>
+    <b>Feels like: </b> {{ feelsLikeTemp }}°C <br>
+    <b>Wind strength: </b> {{ wind }}M/S {{ winddir }}<br>
+    <b>Rainfall: </b> {{ rainfall }} <br><br>
+  </div>
 
-              <script>
-              document.getElementById("app1").style.display = 'none';
-              </script>
+  <script>
+    function clickHandler(inputCity) {
+      weatherApp.getWeather(inputCity);
+    }
+  </script>
 
-<script src="weather.js"></script>
-    </body>
+  <script src="weather.js"></script>
+</body>
+
 </html>

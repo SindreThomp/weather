@@ -1,62 +1,40 @@
-
-let weather = new Vue({
+let weatherApp = new Vue({
   el: '#app',
   data: {
-    overcast: '',
+    city: '',
+    sky: '',
     currentTemp: '',
-    wind: ''
+    feelsLikeTemp: '',
+    wind: '',
+    winddir: '',
+    rainfall: ''
   },
 
   methods: {
-    getWeather() {
-      //let url = "738327588f1c1d049f87971146cd574d"
-       let url = "http://dataservice.accuweather.com/currentconditions/v1/261324?day=1&apikey=UG1ELWb3snblHaeJStDwgRtuA7kiRrpv&details=true";
-       axios
-       .get(url).then(response => {
-         this.overcast = response.data.$.WeatherText;
-         this.currentTemp = response.data.$.Temperature.Metric.Value;
-         this.wind = response.data.$.WindGust.Metric.Value;
-      }).catch(error => {
-        console.log(error);
-      });
+    getWeather(city) {
+      this.city = city;
+
+      let url = "https://api.weatherbit.io/v2.0/current?city=" + city + "&key=3ac7161f99364282867da9e035189d75"
+
+      axios
+        .get(url)
+        .then(response => {
+          this.sky = response.data.data[0].weather.description;
+          this.currentTemp = ((response.data.current.temp_c + response.data.data[0].temp) / 2).toFixed(1);
+          this.feelsLikeTemp = ((response.data.current.feelslike_c + response.data.data[0].app_temp) / 2).toFixed(1);
+          this.wind = (((response.data.current.wind_mph * 0.44704) + response.data.data[0].wind_spd) / 2).toFixed(1);
+          this.winddir = response.data.data[0].wind_cdir;
+          this.rainfall = ((response.data.current.precip_mm + response.data.data[0].precip) / 2).toFixed(1);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     },
   },
-  beforeMount(){
+  beforeMount() {
     this.getWeather();
   },
 })
 
 
-let weather1 = new Vue({
-  el: '#app1',
-  data: {
-    overcast: '',
-    currentTemp: '',
-    wind: '',
-    time: ''
-  },
-
-
-
-
-  methods: {
-    getWeather1(){
-      let url = "http://api.openweathermap.org/data/2.5/weather?q=Stavanger&units=metric&APPID=7f38768c3f7c7ba4e80818a481995113";
-      axios
-      .get(url)
-      .then(response => {
-        this.overcast = response.data.weather[0].description;
-        this.currentTemp  = response.data.main.temp;
-        this.wind = response.data.wind.speed;
-        this.time = response.data.dt;
-
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    },
-  },
-  beforeMount(){
-    this.getWeather1();
-  },
-})
+"https://api.apixu.com/v1/current.json?key=c42cf85cc5c14e369e9111602182111&q=" + city + ""
