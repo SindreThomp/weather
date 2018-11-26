@@ -16,7 +16,7 @@ let weatherApp = new Vue({
       this.getWeather1(city);
       this.getWeather2(city);
       this.getWeather3(city);
-      setTimeout(() => this.getAverage(), 1000);
+      setTimeout(() => this.getAverage(), 500);
     },
 
     getWeather1(city) {
@@ -52,6 +52,7 @@ let weatherApp = new Vue({
         .then(response => {
           this.currentTemp = this.currentTemp + response.data.current.temp_c;
           this.currentWindSpd = this.currentWindSpd + (response.data.current.wind_kph / 3.6);
+          this.currentIcon = this.data.current.icon;
         })
         .catch(error => {
           console.log(error);
@@ -65,8 +66,4 @@ let weatherApp = new Vue({
       this.averageWindSpd = this.currentWindSpd;
     },
   },
-  beforeMount() {
-    //this.customWeather("Oslo");
-  },
-
 })
